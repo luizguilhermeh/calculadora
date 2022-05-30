@@ -50,28 +50,30 @@
 
         #resultado2 {
             background-color: white;
+            border: none;
             width: 207px;
             height: 5px;
-            border: none;
-            font-size: 10px;
+            font-size: 15px;
             color: black;
             text-align: right;
-            padding: 5px;
+            padding: 1px 5px 1px 5px;
+            /* top right bottom left */
             font-weight: bold;
             vertical-align: top;
         }
 
         #resultado {
             background-color: white;
+            border: none;
             width: 207px;
             height: 30px;
             margin-bottom: 5px;
-            font-size: 30px;
+            font-size: 35px;
             color: black;
             text-align: right;
             padding: 5px;
             font-weight: bold;
-            border: none;
+
         }
     </style>
 </head>
@@ -81,14 +83,14 @@
         <h1>Luiz Guilherme Costa</h1>
         <div class="calculadora">
             <h1>Calculadora</h1>
-            <p id="resultado2">500.00 + 300.00</p>
+            <p id="resultado2"></p>
             <p id="resultado"></p>
 
             <table>
                 <tr>
                     <td><button class="botao" onclick="clean('')">C</button></td>
                     <td><button class="botao" onclick="back()">CE</button></td>
-                    <td><button class="botao">/</button></td>
+                    <td><button class="botao" onclick="insert('/')">/</button></td>
                     <td><button class="botao" onclick="insert('*')">X</button></td>
                 </tr>
                 <tr>
@@ -119,23 +121,24 @@
 
     <script>
         function insert(num) {
-            var numero = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = numero + num
+            var numero = document.getElementById('resultado2').innerHTML;
+            document.getElementById('resultado2').innerHTML = numero + num
         }
 
         function clean() {
+            document.getElementById('resultado2').innerHTML = "";
             document.getElementById('resultado').innerHTML = "";
         }
 
         function back() {
-            var resultado = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1);
+            var resultado2 = document.getElementById('resultado2').innerHTML;
+            document.getElementById('resultado2').innerHTML = resultado2.substring(0, resultado2.length - 1);
         }
 
         function calcular() {
-            var resultado = document.getElementById('resultado').innerHTML;
-            if (resultado) {
-                document.getElementById('resultado').innerHTML = eval(resultado);
+            var resultado2 = document.getElementById('resultado2').innerHTML;
+            if (resultado2) {
+                document.getElementById('resultado').innerHTML = eval(resultado2);
             }
         }
     </script>
